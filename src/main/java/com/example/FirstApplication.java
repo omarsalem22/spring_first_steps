@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,12 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FirstApplication {
 
 	public static void main(String[] args) {
-	var ctx=	SpringApplication.run(FirstApplication.class, args);
-		FirstService firstService=ctx.getBean(FirstService.class);
-		System.out.println(firstService.hello());
-	
-	}
-	
 
+		SpringApplication.run(FirstApplication.class);
+
+	}
+ 
 }
-	
