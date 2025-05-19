@@ -2,6 +2,7 @@ package com.example;
 
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,15 +19,16 @@ public class SchoolController {
         this.schoolRepository = schoolRepository;
     }
 
-    @PostMapping("/schools")
+    @PostMapping(value="/schools",consumes = MediaType.APPLICATION_JSON_VALUE)
 
     public School create(@RequestBody School school) {
 
         return schoolRepository.save(school);
 
     }
+
     @GetMapping("/schools")
-    public List <School> getAllSchools(){
+    public List<School> getAllSchools() {
         return schoolRepository.findAll();
     }
 

@@ -25,11 +25,24 @@ public class StudentController {
 
     @PostMapping("/students")
 
-    public Student post(@RequestBody Student student) {
-
+    public Student post(@RequestBody StudentDto dto) {
+        var student = toStudent(dto);
         return repository.save(student);
 
     }
+
+
+    private Student toStudent(StudentDto dto) {
+        var student = new Student();
+        student.setName(dto.name());
+        // student.setAge(dto.age());
+        student.setEmail(dto.email());
+        // var school = new School();
+        // school.setId(dto.school_id());
+        // student.setSchool(school);
+        return student;
+    }
+
     @GetMapping("/students")
 
     public List<Student> findAllStudents() {
@@ -38,20 +51,20 @@ public class StudentController {
 
     @GetMapping("/students/{student-id}")
     public Student findStudentById(@PathVariable("student-id") Long id) {
-        return  repository.findById(id).orElse(new Student());
+        return repository.findById(id).orElse(new Student());
     }
+
     @GetMapping("/students/search/{student-name}")
-    public List<Student> findByName(@PathVariable("student-name") String name){
+    public List<Student> findByName(@PathVariable("student-name") String name) {
 
         return repository.findByNameContainingIgnoreCase(name);
 
     }
 
     @DeleteMapping("/students/{student-id}")
-    @ResponseStatus(HttpStatus.OK) 
-    public  void delete(@PathVariable("student-id") long  id){
+    @ResponseStatus(HttpStatus.OK)
+    public void delete(@PathVariable("student-id") long id) {
         repository.deleteById(id);
     }
-    
 
 }
