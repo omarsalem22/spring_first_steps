@@ -25,7 +25,7 @@ public class Student {
     private int age;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonBackReference("school-student")
     @JoinColumn(name = "school_id")
     private School school;
 

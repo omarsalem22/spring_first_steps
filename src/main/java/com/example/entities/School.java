@@ -18,7 +18,7 @@ public class School {
     private int id;
     private String name;
     @OneToMany(mappedBy = "school")
-    @JsonManagedReference
+    @JsonManagedReference("school-student")
     private List<Student> students;
     
     public List<Student> getStudents() {
