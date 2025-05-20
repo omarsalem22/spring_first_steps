@@ -12,7 +12,7 @@ public class StudentMapper {
 
     public Student toStudent(StudentDto dto) {
         var student = new Student();
-        student.setName(dto.name()); 
+        student.setName(dto.name());
         student.setEmail(dto.email());
         student.setAge(dto.age());
 
@@ -23,7 +23,7 @@ public class StudentMapper {
     }
 
     public StudentResponseDto toStudentResponseDto(Student student) {
-        return new StudentResponseDto(student.getName(), student.getEmail());
+        return new StudentResponseDto(student.getName(), student.getEmail(), student.getSchool().getId());
     }
 
 }

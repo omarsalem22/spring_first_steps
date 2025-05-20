@@ -3,9 +3,9 @@ package com.example;
 public record StudentResponseDto(
         String name,
 
-        String email
+        String email,
 
-        // int schoolId
+        int schoolId
 
 ) {
 
