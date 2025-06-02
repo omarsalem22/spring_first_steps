@@ -1,4 +1,4 @@
-package com.example;
+package com.example.student;
 
 import java.util.List;
 
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.entities.Student;
 import com.example.service.StudentService;
 
 @RestController
@@ -39,12 +38,12 @@ public class StudentController {
     }
 
     @GetMapping("/students/{student-id}")
-    public Student findStudentById(@PathVariable("student-id") Long id) {
+    public StudentResponseDto findStudentById(@PathVariable("student-id") Long id) {
         return studentService.findById(id);
     }
 
     @GetMapping("/students/search/{student-name}")
-    public List<Student> findByName(@PathVariable("student-name") String name) {
+    public List<StudentResponseDto> findByName(@PathVariable("student-name") String name) {
 
         return studentService.findByName(name);
 

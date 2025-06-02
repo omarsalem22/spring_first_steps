@@ -5,10 +5,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.example.StudentDto;
-import com.example.StudentRepository;
-import com.example.StudentResponseDto;
-import com.example.entities.Student;
+import com.example.student.StudentDto;
+import com.example.student.StudentRepository;
+import com.example.student.StudentResponseDto;
 
 @Service
 public class StudentService {
@@ -35,12 +34,13 @@ public class StudentService {
         return repository.findAll().stream().map(studentMapper::toStudentResponseDto).collect(Collectors.toList());
     }
 
-    public List<Student> findByName(String name) {
-        return repository.findByNameContainingIgnoreCase(name);
+    public List<StudentResponseDto> findByName(String name) {
+        return repository.findByNameContainingIgnoreCase(name).stream().map(studentMapper::toStudentResponseDto)
+                .collect(Collectors.toList());
     }
 
-    public Student findById(Long id) {
-        return repository.findById(id).orElse(new Student());
+    public StudentResponseDto findById(Long id) {
+        return repository.findById(id).map(studentMapper::toStudentResponseDto).orElse(null);
     }
 
 }

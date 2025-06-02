@@ -1,4 +1,4 @@
-package com.example;
+package com.example.profile;
 
 import java.util.List;
 

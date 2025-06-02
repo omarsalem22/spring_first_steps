@@ -1,4 +1,4 @@
-package com.example;
+package com.example.student;
 
 public record StudentResponseDto(
         String name,
