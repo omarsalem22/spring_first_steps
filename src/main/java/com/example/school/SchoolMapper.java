@@ -1,9 +1,8 @@
-package com.example.service;
+package com.example.school;
 
 import org.springframework.stereotype.Service;
 
 import com.example.entities.School;
-import com.example.school.SchoolDto;
 
 @Service
 
@@ -16,7 +15,7 @@ public class SchoolMapper {
 
     public SchoolDto toSchoolDto(School school) {
 
-        return new SchoolDto(school.getName());
+        return new SchoolDto(school.getName(),school.getId());
     }
 
 }

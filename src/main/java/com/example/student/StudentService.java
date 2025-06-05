@@ -1,13 +1,9 @@
-package com.example.service;
+package com.example.student;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
-
-import com.example.student.StudentDto;
-import com.example.student.StudentRepository;
-import com.example.student.StudentResponseDto;
 
 @Service
 public class StudentService {

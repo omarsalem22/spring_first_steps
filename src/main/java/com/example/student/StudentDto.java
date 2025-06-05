@@ -1,9 +1,11 @@
 package com.example.student;
 
+import jakarta.validation.constraints.NotEmpty;
+
 public record StudentDto(
-        String name,
-                String email,
-                int age,
-                int schoolId) {
+        @NotEmpty(message="put name") String name,
+        @NotEmpty String email,
+        int age,
+        int schoolId) {
 
 }

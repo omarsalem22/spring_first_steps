@@ -1,11 +1,9 @@
-package com.example.service;
+package com.example.student;
 
 import org.springframework.stereotype.Service;
 
 import com.example.entities.School;
 import com.example.entities.Student;
-import com.example.student.StudentDto;
-import com.example.student.StudentResponseDto;
 
 @Service
 public class StudentMapper {
